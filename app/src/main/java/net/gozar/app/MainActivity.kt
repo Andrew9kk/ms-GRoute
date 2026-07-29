@@ -1635,8 +1635,7 @@ private fun ConfigPickerScreen(
                         modifier = Modifier.animateItem()
                     )
                 }
-                if (sub.id in expandedSubs) {
-                    items(subConfigs, key = { it.id }) { cfg ->
+                items(subConfigs, key = { it.id }) { cfg ->
                         ConfigRow(
                             config = cfg,
                             isSelected = cfg.id == selectedId,
