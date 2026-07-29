@@ -4060,33 +4060,11 @@ private fun SubscriptionHeader(
     ) {
         Column(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(if (isOpen) Icons.Filled.ExpandMore else Icons.Filled.ChevronRight, contentDescription = null, modifier = Modifier.padding(end = 8.dp))
-                Text(sub.name, style = MaterialTheme.typography.titleSmall, maxLines = 1, modifier = Modifier.weight(1f))
-                Box {
-                    Icon(Icons.Filled.Share, contentDescription = t("share"), tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.clip(RoundedCornerShape(50)).clickable { shareMenu = true }.padding(6.dp).size(20.dp))
-                    DropdownMenu(expanded = shareMenu, onDismissRequest = { shareMenu = false }) {
-                        CompactMenuItem(Icons.Filled.ContentCopy, t("share_clipboard")) {
-                            shareMenu = false
-                            clipboard.setText(AnnotatedString(sub.url))
-                            android.widget.Toast.makeText(context, t("copied"), android.widget.Toast.LENGTH_SHORT).show()
-                        }
-                        CompactMenuItem(Icons.Filled.Share, t("share_app")) {
-                            shareMenu = false
-                            val send = Intent(Intent.ACTION_SEND).apply {
-                                type = "text/plain"
-                                putExtra(Intent.EXTRA_TEXT, sub.url)
-                            }
-                            context.startActivity(Intent.createChooser(send, sub.name))
-                        }
-                    }
-                }
-                Icon(Icons.Filled.Edit, contentDescription = t("edit_sub_name"), tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.clip(RoundedCornerShape(50)).clickable { draftName = sub.name; renaming = true }.padding(6.dp).size(20.dp))
+                Text("MSNet Server List", style = MaterialTheme.typography.titleSmall, maxLines = 1, modifier = Modifier.weight(1f))
+                  
                 Icon(Icons.Filled.Refresh, contentDescription = t("refresh"), tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.clip(RoundedCornerShape(50)).clickable { onRefresh() }.padding(6.dp).size(20.dp))
-                Icon(Icons.Filled.Delete, contentDescription = t("remove"), tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.clip(RoundedCornerShape(50)).clickable { onRemove() }.padding(6.dp).size(20.dp))
+                
             }
             if (sub.total > 0) {
                 Spacer(Modifier.height(6.dp))
