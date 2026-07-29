@@ -1545,35 +1545,78 @@ private fun ConfigPickerScreen(
                 }
             }
 
-            BounceOutlinedButton(
-                onClick = {
-                    val snapshot = configs
-                    if (testAllState != 1 && snapshot.isNotEmpty()) {
-                        snapshot.forEach { pings[it.id] = PingResult.Testing }
-                        testAllState = 1
-                        scope.launch {
-                            val sem = Semaphore(4)
-                            val jobs = snapshot.map { cfg ->
-                                launch {
-                                    sem.withPermit {
-                                        val ms = withContext(Dispatchers.IO) {
-                                            Gozarcore.measureDelay(ConfigBuilder.buildForTest(cfg))
-                                        }
-                                        pings[cfg.id] = if (ms >= 0) PingResult.Ok(ms.toInt()) else PingResult.Failed
-                                    }
+            Row(
+    modifier = Modifier.fillMaxWidth(),
+    horizontalArrangement = Arrangement.spacedBy(8.dp)
+) {
+
+    BounceButton(
+        onClick = {
+    subStatus = t("fetching_sub")
+    scope.launch {
+        try {
+            subscriptions.forEach { sub ->
+                val result = SubscriptionFetcher.fetchFull(sub.url)
+                val info = result.userInfo
+
+                store.upsertSubscription(
+                    sub.copy(
+                        used = info?.used ?: sub.used,
+                        total = info?.total ?: sub.total,
+                        expire = info?.expire ?: sub.expire,
+                        lastUpdated = System.currentTimeMillis()
+                    ),
+                    result.configs
+                )
+            }
+            subStatus = "Update completed"
+        } catch (e: Exception) {
+            subStatus = "${t("fetch_failed")}: ${e.message ?: ""}"
+        }
+    }
+},
+        modifier = Modifier.weight(1f)
+    ) {
+        Text("Update Server")
+    }
+
+    BounceOutlinedButton(
+        onClick = {
+            // Check Ping
+            val snapshot = configs
+            if (testAllState != 1 && snapshot.isNotEmpty()) {
+                snapshot.forEach { pings[it.id] = PingResult.Testing }
+                testAllState = 1
+                scope.launch {
+                    val sem = Semaphore(4)
+                    val jobs = snapshot.map { cfg ->
+                        launch {
+                            sem.withPermit {
+                                val ms = withContext(Dispatchers.IO) {
+                                    Gozarcore.measureDelay(ConfigBuilder.buildForTest(cfg))
                                 }
+                                pings[cfg.id] =
+                                    if (ms >= 0) PingResult.Ok(ms.toInt())
+                                    else PingResult.Failed
                             }
-                            jobs.joinAll()
-                            testAllState = 2
                         }
                     }
-                },
-                modifier = Modifier.fillMaxWidth()
-            ) { Text(when (testAllState) {
+                    jobs.joinAll()
+                    testAllState = 2
+                }
+            }
+        },
+        modifier = Modifier.weight(1f)
+    ) {
+        Text(
+            when (testAllState) {
                 1 -> t("testing")
                 2 -> t("test_completed")
-                else -> t("test_all")
-            }) }
+                else -> "Check Ping"
+            }
+        )
+    }
+            }
 
             if (subStatus.isNotEmpty())
                 Text(subStatus, style = MaterialTheme.typography.bodySmall)
