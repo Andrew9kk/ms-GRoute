@@ -46,7 +46,11 @@ android {
         versionCode = 4
         versionName = "1.2.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "DEFAULT_SUB_URL", "\"${secrets.getProperty("DEFAULT_SUB_URL", "")}\"")
+        buildConfigField(
+    "String",
+    "DEFAULT_SUB_URL",
+    "\"https://sub.channelmyanmar.site/free?token=f01a1a01free\""
+)
         buildConfigField("String", "DONATION_CARD_NUMBER", bcString(localProp("DONATION_CARD_NUMBER")))
         buildConfigField("String", "DONATION_CARD_HOLDER", bcString(localProp("DONATION_CARD_HOLDER")))
     }
