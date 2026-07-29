@@ -1290,6 +1290,7 @@ private fun ConfigPickerScreen(
     var addBusy by remember { mutableStateOf(false) }
     var addDone by remember { mutableStateOf("") }
     var testAllState by remember { mutableStateOf(0) }
+    var updateState by remember { mutableStateOf(0) }
     var addMenu by remember { mutableStateOf(false) }
     val expandedSubs by store.expandedSubs.collectAsState()
     val scope = rememberCoroutineScope()
@@ -1552,6 +1553,7 @@ private fun ConfigPickerScreen(
 
     BounceButton(
         onClick = {
+    updateState = 1
     subStatus = t("fetching_sub")
     scope.launch {
         try {
@@ -1569,15 +1571,28 @@ private fun ConfigPickerScreen(
                     result.configs
                 )
             }
-            subStatus = "Update completed"
+            updateState = 2
+subStatus = "Successfully Updated"
+
+delay(2000)
+
+updateState = 0
+subStatus = ""
         } catch (e: Exception) {
-            subStatus = "${t("fetch_failed")}: ${e.message ?: ""}"
+        updateState = 0    
+        subStatus = "${t("fetch_failed")}: ${e.message ?: ""}"
         }
     }
 },
         modifier = Modifier.weight(1f)
     ) {
-        Text("Update Server")
+        Text(
+    when (updateState) {
+        1 -> "Updating..."
+        2 -> "Successfully Updated"
+        else -> "Update Server"
+    }
+)
     }
 
     BounceOutlinedButton(
