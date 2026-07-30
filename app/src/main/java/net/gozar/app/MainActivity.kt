@@ -846,7 +846,6 @@ private fun GozarApp(
             CenterAlignedTopAppBar(
                 title = {
                     if (screenKey == "connection") {
-                        Text(
     Text(
     text = buildAnnotatedString {
         withStyle(SpanStyle(color = Color(0xFF00E676))) {
