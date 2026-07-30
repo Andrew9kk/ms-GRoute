@@ -2624,14 +2624,18 @@ private fun AboutScreen(modifier: Modifier = Modifier) {
         withStyle(SpanStyle(color = Color(0xFF00C853))) {
             append("MS")
         }
-        withStyle(SpanStyle(color = Color.White)) {
+        withStyle(
+            SpanStyle(
+                color = MaterialTheme.colorScheme.onBackground
+            )
+        ) {
             append("Net")
         }
     },
     style = MaterialTheme.typography.displayMedium,
     modifier = Modifier.padding(top = 16.dp)
 )
-
+        
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(20.dp),
