@@ -4262,6 +4262,7 @@ private fun ConfigRow(
                         }
                     }
                 }
+          }
                 Icon(Icons.Filled.Delete, contentDescription = t("delete"),
                     tint = MaterialTheme.colorScheme.error,
                     modifier = Modifier.clip(CircleShape).clickable { onDelete() }.padding(8.dp).size(21.dp))
