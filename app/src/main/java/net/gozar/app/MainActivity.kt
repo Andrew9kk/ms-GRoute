@@ -2449,9 +2449,9 @@ Text(
 )
                 }
                 Icon(
-    Icons.Filled.ContactSupport,
+    Icons.Filled.Info,
     contentDescription = null,
-    tint = Color(0xFF6D9BEE),
+    tint = Color(0xFF6FD9BE),
     modifier = Modifier.padding(end = 12.dp)
 )
                 Icon(Icons.Filled.ChevronRight, contentDescription = null)
