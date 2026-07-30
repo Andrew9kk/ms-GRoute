@@ -1,4 +1,4 @@
-package net.gozar.app
+package com.ms7.msnet
 
 import org.junit.Test
 

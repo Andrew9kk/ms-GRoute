@@ -32,7 +32,7 @@ val secrets = Properties().apply {
 }
 
 android {
-    namespace = "net.gozar.app"
+    namespace = "com.ms7.msnet"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -40,7 +40,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "net.gozar.app"
+        applicationId = "com.ms7.msnet"
         minSdk = 26
         targetSdk = 36
         versionCode = 4
