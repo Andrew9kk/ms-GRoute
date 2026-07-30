@@ -2603,9 +2603,15 @@ private fun AboutScreen(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-    text = "MSNet",
+    buildAnnotatedString {
+        withStyle(SpanStyle(color = Color(0xFF00C853))) {
+            append("MS")
+        }
+        withStyle(SpanStyle(color = Color.White)) {
+            append("Net")
+        }
+    },
     style = MaterialTheme.typography.displayMedium,
-    color = MaterialTheme.colorScheme.primary,
     modifier = Modifier.padding(top = 16.dp)
 )
 
@@ -2733,9 +2739,9 @@ private fun xrayCoreVersion(): String = runCatching {
 }.getOrNull()?.takeIf { it.isNotBlank() } ?: "—"
 
 private val PRIVACY_EN = """
-GRoute is built to protect your privacy.
+MSNet is built to protect your privacy.
 
-What we collect: Nothing. GRoute has no accounts, no analytics, no advertising and no tracking. The developer runs no servers that receive your browsing activity.
+What we collect: Nothing. MSNet has no accounts, no analytics, no advertising and no tracking. The developer runs no servers that receive your browsing activity.
 
 On your device: Your server configurations are stored encrypted in the app's private storage. Data-usage statistics (how much traffic passed through the tunnel) stay only on your device and are never transmitted anywhere. Clearing the app's data removes them.
 
@@ -2747,7 +2753,7 @@ Permissions: The VPN permission is used solely to route traffic through the tunn
 
 Changes: This policy may be updated as the app evolves; material changes will be noted in new releases.
 
-Contact: Questions? Reach the developer on Telegram at @OracleVPNsupport.
+Contact: Questions? Reach the developer on Telegram at @andrew_ms_7.
 """.trimIndent()
 
 private val PRIVACY_FA = """
@@ -2765,7 +2771,7 @@ private val PRIVACY_FA = """
 
 تغییرات: این سیاست ممکن است با تکامل برنامه به‌روزرسانی شود؛ تغییرات مهم در نسخه‌های جدید اعلام می‌شوند.
 
-تماس: سؤالی دارید؟ از طریق تلگرام با @OracleVPNsupport در ارتباط باشید.
+تماس: سؤالی دارید؟ از طریق تلگرام با @andrew_ms_7 در ارتباط باشید.
 """.trimIndent()
 
 @Composable
