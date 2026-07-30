@@ -388,7 +388,7 @@ private fun WelcomeScreen(onDone: () -> Unit) {
                 lineHeight = 22.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = welcomeFont,
-                color = Color(0xFFEDEFF3),
+                color = Color(0xFF9FB3D1),
                 textAlign = TextAlign.Center,
                 overflow = TextOverflow.Visible,
                 modifier = Modifier
