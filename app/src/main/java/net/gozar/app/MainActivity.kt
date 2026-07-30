@@ -2449,7 +2449,7 @@ Text(
 )
                 }
                 Icon(
-    Icons.Filled.Info,
+    Icons.Filled.Favorite,
     contentDescription = null,
     tint = Color(0xFF6FD9BE),
     modifier = Modifier.padding(end = 12.dp)
