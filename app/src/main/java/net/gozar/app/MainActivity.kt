@@ -1586,7 +1586,7 @@ private fun ConfigPickerScreen(
             updateState = 2
 subStatus = "☑ ဆာဗာများကို အောင်မြင်စွာ 𝗎𝗉𝖽𝖺𝗍𝖾 လုပ်ပြီးပါပြီ"
 
-delay(3000)
+delay(2000)
 
 updateState = 0
 subStatus = ""
@@ -1601,7 +1601,7 @@ subStatus = ""
         Text(
     when (updateState) {
         1 -> "𝖴𝗉𝖽𝖺𝗍𝗂𝗇𝗀..."
-        2 -> "𝘚𝘶𝘤𝘤𝘦𝘴𝘴𝘧𝘶𝘭𝘭𝘺 𝘜𝘱𝘥𝘢𝘵𝘦𝘥 ☑"
+        2 -> "𝘚𝘶𝘤𝘤𝘦𝘴𝘴𝘧𝘶𝘭𝘭𝘺 𝘜𝘱𝘥𝘢𝘵𝘦𝘥 ✔"
         else -> "𝖴𝗉𝖽𝖺𝗍𝖾 𝖲𝖾𝗋𝗏𝖾𝗋"
     }
 )
@@ -1637,8 +1637,8 @@ subStatus = ""
     ) {
         Text(
             when (testAllState) {
-                1 -> t("𝖢𝗁𝖾𝖼𝗄𝗂𝗇𝗀...")
-                2 -> t("check_completed")
+                1 -> t("𝘊𝘩𝘦𝘤𝘬𝘪𝘯𝘨...")
+                2 -> t("Completed ☑")
                 else -> "𝖢𝗁𝖾𝖼𝗄 𝖯𝗂𝗇𝗀"
             }
         )
