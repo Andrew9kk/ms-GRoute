@@ -4256,29 +4256,12 @@ private fun ConfigRow(
                         modifier = Modifier.clip(CircleShape).clickable { shareMenu = true }.padding(8.dp).size(21.dp))
                     DropdownMenu(expanded = shareMenu, onDismissRequest = { shareMenu = false }) {
                         if (!config.locked) {
-                            CompactMenuItem(Icons.Filled.ContentCopy, t("share_clipboard")) {
-                                shareMenu = false
-                                clipboard.setText(AnnotatedString(ConfigShare.toLink(config)))
-                                android.widget.Toast.makeText(context, t("copied"), android.widget.Toast.LENGTH_SHORT).show()
-                            }
-                            CompactMenuItem(Icons.Filled.Share, t("share_app")) {
-                                shareMenu = false
-                                val send = Intent(Intent.ACTION_SEND).apply {
-                                    type = "text/plain"
-                                    putExtra(Intent.EXTRA_TEXT, ConfigShare.toLink(config))
-                                }
-                                context.startActivity(Intent.createChooser(send, config.name))
-                            }
-                        }
                         CompactMenuItem(Icons.Filled.InsertDriveFile, t("share_file")) {
                             shareMenu = false
                             onShareFile()
                         }
                     }
                 }
-                Icon(Icons.Filled.Edit, contentDescription = t("edit"),
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.clip(CircleShape).clickable { onEdit() }.padding(8.dp).size(21.dp))
                 Icon(Icons.Filled.Delete, contentDescription = t("delete"),
                     tint = MaterialTheme.colorScheme.error,
                     modifier = Modifier.clip(CircleShape).clickable { onDelete() }.padding(8.dp).size(21.dp))
