@@ -367,19 +367,18 @@ private fun WelcomeScreen(onDone: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Image(
-                painter = painterResource(R.drawable.logo),
-                contentDescription = null,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .size(200.dp)
-                    .graphicsLayer {
-                        alpha = logoAlpha
-                        scaleX = logoScale
-                        scaleY = logoScale
-                    }
-            )
-
+            Text(
+    text = "MSNet",
+    fontSize = 52.sp,
+    fontWeight = FontWeight.Normal,
+    color = Color.White,
+    letterSpacing = 2.sp,
+    modifier = Modifier.graphicsLayer {
+        alpha = logoAlpha
+        scaleX = logoScale
+        scaleY = logoScale
+    }
+)
             Text(
                 text = t("welcome_tagline"),
                 style = MaterialTheme.typography.titleMedium,
