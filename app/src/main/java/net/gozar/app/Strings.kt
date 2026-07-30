@@ -231,7 +231,7 @@ object Strings {
         "unit_mbps" to "Mbps",
         "unit_per_sec" to "/s",
         "unit_days" to "d",
-        "welcome_tagline" to "MSNet, Secure & Fast VPN",
+        "welcome_tagline" to "Fast • Secure • Stable",
         "welcome_dev" to "Developed by MS7",
         "per_app" to "Per-app proxy",
         "per_app_sub" to "Choose which apps use the VPN",
