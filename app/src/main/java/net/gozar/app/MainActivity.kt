@@ -373,11 +373,13 @@ private fun WelcomeScreen(onDone: () -> Unit) {
     fontWeight = FontWeight.Normal,
     color = Color.White,
     letterSpacing = 2.sp,
-    modifier = Modifier.graphicsLayer {
-        alpha = logoAlpha
-        scaleX = logoScale
-        scaleY = logoScale
-    }
+    modifier = Modifier
+        .offset(y = (-60).dp)   // အပေါ်ကို ရွှေ့
+        .graphicsLayer {
+            alpha = logoAlpha
+            scaleX = logoScale
+            scaleY = logoScale
+        }
 )
             Text(
                 text = t("welcome_tagline"),
