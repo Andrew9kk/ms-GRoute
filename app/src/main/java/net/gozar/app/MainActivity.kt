@@ -2602,11 +2602,12 @@ private fun AboutScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painter = painterResource(logoRes),
-            contentDescription = null,
-            modifier = Modifier.padding(top = 8.dp).size(128.dp)
-        )
+        Text(
+    text = "MSNet",
+    style = MaterialTheme.typography.displayMedium,
+    color = MaterialTheme.colorScheme.primary,
+    modifier = Modifier.padding(top = 16.dp)
+)
 
         Card(
             modifier = Modifier.fillMaxWidth(),
@@ -2619,26 +2620,7 @@ private fun AboutScreen(modifier: Modifier = Modifier) {
             }
         }
 
-        Card(
-            modifier = Modifier.fillMaxWidth()
-                .clip(RoundedCornerShape(20.dp))
-                .clickable { runCatching { uriHandler.openUri("https://github.com/SuOracle/GRoute") } },
-            shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)
-        ) {
-            Row(Modifier.fillMaxWidth().padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-                Column(Modifier.weight(1f)) {
-                    Text(t("source_code"), style = MaterialTheme.typography.bodyLarge)
-                    Text(
-                        "github.com/SuOracle/GRoute",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                }
-                Icon(Icons.Filled.ChevronRight, contentDescription = null)
-            }
-        }
-
+    
         Card(
             modifier = Modifier.fillMaxWidth()
                 .clip(RoundedCornerShape(20.dp))
@@ -2712,7 +2694,7 @@ private fun AboutScreen(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .padding(top = 8.dp)
                 .clip(RoundedCornerShape(12.dp))
-                .clickable { runCatching { uriHandler.openUri("https://t.me/OracleVPNsupport") } }
+                .clickable { runCatching { uriHandler.openUri("https://t.me/MSNetVPN") } }
                 .padding(horizontal = 12.dp, vertical = 8.dp)
         ) {
             Icon(
