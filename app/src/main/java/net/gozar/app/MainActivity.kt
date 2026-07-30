@@ -833,19 +833,13 @@ private fun GozarApp(
             CenterAlignedTopAppBar(
                 title = {
                     if (screenKey == "connection") {
-                        val logoRes = if (effectiveDark) R.drawable.logo else R.drawable.logo_black
-                        Box {
-                            Image(
-                                painter = painterResource(logoRes),
-                                contentDescription = null,
-                                modifier = Modifier.height(34.dp)
-                            )
-                            Image(
-                                painter = painterResource(logoRes),
-                                contentDescription = t("app_title"),
-                                modifier = Modifier.height(34.dp)
-                            )
-                        }
+                        Text(
+    text = "MSNet",
+    fontSize = 30.sp,
+    fontWeight = FontWeight.Bold,
+    color = MaterialTheme.colorScheme.onBackground,
+    letterSpacing = 1.sp
+)
                     } else {
                         Text(
                             when (screenKey) {
