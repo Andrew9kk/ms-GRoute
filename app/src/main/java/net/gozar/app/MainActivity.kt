@@ -46,6 +46,7 @@ import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.foundation.background
@@ -368,13 +369,23 @@ private fun WelcomeScreen(onDone: () -> Unit) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-    text = "MSNet",
+    text = buildAnnotatedString {
+        withStyle(
+            SpanStyle(color = Color(0xFF00E676))
+        ) {
+            append("MS")
+        }
+        withStyle(
+            SpanStyle(color = Color.White)
+        ) {
+            append("Net")
+        }
+    },
     fontSize = 52.sp,
     fontWeight = FontWeight.Normal,
-    color = Color.White,
     letterSpacing = 2.sp,
     modifier = Modifier
-        .offset(y = (-60).dp)   // အပေါ်ကို ရွှေ့
+        .offset(y = (-60).dp)
         .graphicsLayer {
             alpha = logoAlpha
             scaleX = logoScale
