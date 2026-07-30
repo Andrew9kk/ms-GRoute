@@ -2437,13 +2437,23 @@ private fun SettingsScreen(
         ) {
             Row(Modifier.fillMaxWidth().padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f)) {
-                    Text(if (lang == Lang.FA) "حمایت از ما" else "Support Us", style = MaterialTheme.typography.bodyLarge)
-                    Text(if (lang == Lang.FA) "با حمایت مالی، به توسعه جی روت و اینترنت آزاد کمک کنید" else "Donate to develope GRoute and Free internet",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(
+    text = "Contact Us",
+    style = MaterialTheme.typography.bodyLarge
+)
+
+Text(
+    text = "Developer, Telegram Channel & Website",
+    style = MaterialTheme.typography.bodySmall,
+    color = MaterialTheme.colorScheme.onSurfaceVariant
+)
                 }
-                Icon(Icons.Filled.Favorite, contentDescription = null,
-                    tint = Color(0xFF6D9BEE), modifier = Modifier.padding(end = 12.dp))
+                Icon(
+    Icons.Filled.ContactSupport,
+    contentDescription = null,
+    tint = Color(0xFF6D9BEE),
+    modifier = Modifier.padding(end = 12.dp)
+)
                 Icon(Icons.Filled.ChevronRight, contentDescription = null)
             }
         }
