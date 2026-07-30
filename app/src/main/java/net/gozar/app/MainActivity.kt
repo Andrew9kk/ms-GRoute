@@ -847,10 +847,17 @@ private fun GozarApp(
                 title = {
                     if (screenKey == "connection") {
                         Text(
-    text = "MSNet",
+    Text(
+    text = buildAnnotatedString {
+        withStyle(SpanStyle(color = Color(0xFF00E676))) {
+            append("MS")
+        }
+        withStyle(SpanStyle(color = MaterialTheme.colorScheme.onBackground)) {
+            append("Net")
+        }
+    },
     fontSize = 30.sp,
     fontWeight = FontWeight.Bold,
-    color = MaterialTheme.colorScheme.onBackground,
     letterSpacing = 1.sp
 )
                     } else {
