@@ -321,11 +321,12 @@ private fun stringsFn(): (String) -> String {
     return { Strings.get(lang, it) }
 }
 
-
 @Composable
 private fun WelcomeScreen(onDone: () -> Unit) {
     val t = stringsFn()
-    val welcomeFont = if (LocalLang.current == Lang.FA) VazirFont else LexendFont
+    val welcomeFont =
+        if (LocalLang.current == Lang.FA) VazirFont else LexendFont
+
     var showLogo by remember { mutableStateOf(false) }
     var showTagline by remember { mutableStateOf(false) }
 
@@ -338,114 +339,112 @@ private fun WelcomeScreen(onDone: () -> Unit) {
     }
 
     val logoAlpha by animateFloatAsState(
-        targetValue = if (showLogo) 1f else 0f,
-        animationSpec = tween(600),
-        label = "logoAlpha"
+        if (showLogo) 1f else 0f,
+        tween(600),
+        label = ""
     )
+
     val logoScale by animateFloatAsState(
-        targetValue = if (showLogo) 1f else 0.7f,
-        animationSpec = tween(600),
-        label = "logoScale"
+        if (showLogo) 1f else 0.7f,
+        tween(600),
+        label = ""
     )
+
     val taglineAlpha by animateFloatAsState(
-        targetValue = if (showTagline) 1f else 0f,
-        animationSpec = tween(700),
-        label = "taglineAlpha"
+        if (showTagline) 1f else 0f,
+        tween(700),
+        label = ""
     )
+
     val taglineShift by animateFloatAsState(
-        targetValue = if (showTagline) 0f else 30f,
-        animationSpec = tween(700),
-        label = "taglineShift"
+        if (showTagline) 0f else 30f,
+        tween(700),
+        label = ""
     )
 
     Box(
-    modifier = Modifier
-        .fillMaxSize()
-        .background(SplashBackground),
-    contentAlignment = Alignment.Center
-) {
-
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        modifier = Modifier
+            .fillMaxSize()
+            .background(SplashBackground)
     ) {
 
-        Text(
-            text = buildAnnotatedString {
-                withStyle(SpanStyle(color = Color(0xFF00E676))) {
-                    append("MS")
-                }
-                withStyle(SpanStyle(color = Color.White)) {
-                    append("Net")
-                }
-            },
-            fontSize = 52.sp,
-            fontWeight = FontWeight.Normal,
-            letterSpacing = 2.sp,
-            modifier = Modifier
-                .offset(y = (-60).dp)
-                .graphicsLayer {
+        Column(
+            modifier = Modifier.align(Alignment.Center),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Text(
+                text = buildAnnotatedString {
+                    withStyle(SpanStyle(color = Color(0xFF00E676))) {
+                        append("MS")
+                    }
+                    withStyle(SpanStyle(color = Color.White)) {
+                        append("Net")
+                    }
+                },
+                fontSize = 52.sp,
+                fontWeight = FontWeight.Normal,
+                letterSpacing = 2.sp,
+                modifier = Modifier.graphicsLayer {
                     alpha = logoAlpha
                     scaleX = logoScale
                     scaleY = logoScale
                 }
-        )
+            )
 
-        Text(
-            text = t("welcome_tagline"),
-            style = MaterialTheme.typography.titleMedium,
-            fontSize = 16.sp,
-            lineHeight = 22.sp,
-            fontWeight = FontWeight.Bold,
-            fontFamily = welcomeFont,
-            color = Color(0xFF9FB3D1),
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .fillMaxWidth()
-                .offset(y = (-40).dp)
-                .padding(horizontal = 24.dp)
-                .graphicsLayer {
+            Spacer(Modifier.height(18.dp))
+
+            Text(
+                text = t("welcome_tagline"),
+                style = MaterialTheme.typography.titleMedium,
+                fontFamily = welcomeFont,
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+                color = Color(0xFF9FB3D1),
+                modifier = Modifier.graphicsLayer {
                     alpha = taglineAlpha
                     translationY = taglineShift
                 }
-        )
+            )
 
-        Spacer(modifier = Modifier.height(72.dp))
+            Spacer(Modifier.height(56.dp))
 
-        Text(
-            text = "Initializing Secure VPN...",
-            style = MaterialTheme.typography.bodyMedium,
-            fontSize = 15.sp,
-            color = Color(0xFF5CC8FF),
-            textAlign = TextAlign.Center
-        )
+            Text(
+                text = "Initializing Secure VPN...",
+                style = MaterialTheme.typography.bodyMedium,
+                fontSize = 15.sp,
+                color = Color(0xFF5CC8FF)
+            )
+        }
+
+        Column(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .navigationBarsPadding()
+                .padding(bottom = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Text(
+                text = t("welcome_dev"),
+                fontFamily = welcomeFont,
+                fontWeight = FontWeight.Bold,
+                fontSize = 15.sp,
+                color = Color(0xFF7F8DA8)
+            )
+
+            Spacer(Modifier.height(4.dp))
+
+            Text(
+                text = "v1.0.0",
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp,
+                color = Color(0xFF00E676)
+            )
+        }
     }
-
-    Column(
-        modifier = Modifier
-            .align(Alignment.BottomCenter)
-            .navigationBarsPadding()
-            .padding(bottom = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Text(
-            text = t("welcome_dev"),
-            style = MaterialTheme.typography.bodyMedium,
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Bold,
-            fontFamily = welcomeFont,
-            color = Color(0xFF7F8DA8)
-        )
-
-        Text(
-            text = "v1.0.0",
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color(0xFF00E676)
-        )
-    }
-    }
+}
+        
 internal val LocalHazeState = compositionLocalOf<HazeState?> { null }
 
 object ImportBus {
