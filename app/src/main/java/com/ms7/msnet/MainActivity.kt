@@ -46,7 +46,6 @@ import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.foundation.background
@@ -226,7 +225,6 @@ import androidx.core.view.WindowCompat
 import android.content.pm.PackageManager
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.ui.graphics.ImageBitmap
@@ -446,12 +444,12 @@ private fun LoadingDots() {
 
     val transition = rememberInfiniteTransition(label = "")
 
-    val active by transition.animateInt(
-        initialValue = 0,
-        targetValue = 2,
+    val scale by transition.animateFloat(
+        initialValue = 0.8f,
+        targetValue = 1.2f,
         animationSpec = infiniteRepeatable(
-            animation = tween(900),
-            repeatMode = RepeatMode.Restart
+            animation = tween(500),
+            repeatMode = RepeatMode.Reverse
         ),
         label = ""
     )
@@ -460,19 +458,12 @@ private fun LoadingDots() {
         horizontalArrangement = Arrangement.spacedBy(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-
-        repeat(3) { index ->
-
+        repeat(3) {
             Box(
                 modifier = Modifier
-                    .size(if (index == active) 12.dp else 8.dp)
+                    .size((10 * scale).dp)
                     .clip(CircleShape)
-                    .background(
-                        if (index == active)
-                            Color(0xFF00E676)
-                        else
-                            Color(0xFF5C6F8F)
-                    )
+                    .background(Color(0xFF00E676))
             )
         }
     }
