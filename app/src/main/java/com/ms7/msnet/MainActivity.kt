@@ -226,6 +226,7 @@ import androidx.core.view.WindowCompat
 import android.content.pm.PackageManager
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.ui.graphics.ImageBitmap
@@ -409,12 +410,7 @@ private fun WelcomeScreen(onDone: () -> Unit) {
 
             Spacer(Modifier.height(56.dp))
 
-            Text(
-                text = "Initializing Secure VPN...",
-                style = MaterialTheme.typography.bodyMedium,
-                fontSize = 15.sp,
-                color = Color(0xFF5CC8FF)
-            )
+            LoadingDots()
         }
 
         Column(
@@ -440,6 +436,23 @@ private fun WelcomeScreen(onDone: () -> Unit) {
                 fontWeight = FontWeight.Bold,
                 fontSize = 14.sp,
                 color = Color(0xFF00E676)
+            )
+        }
+    }
+}
+
+@Composable
+private fun LoadingDots() {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        repeat(3) {
+            Box(
+                modifier = Modifier
+                    .size(10.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFF00E676))
             )
         }
     }
