@@ -412,9 +412,18 @@ private fun WelcomeScreen(onDone: () -> Unit) {
                     }
             )
         }
+        Spacer(modifier = Modifier.height(36.dp))
 
+Text(
+    text = "Initializing Secure VPN...",
+    style = MaterialTheme.typography.bodyMedium,
+    fontSize = 15.sp,
+    color = Color(0xFFAAB4C4),
+    textAlign = TextAlign.Center,
+    modifier = Modifier.fillMaxWidth()
+)
         Text(
-            text = t("welcome_dev"),
+            text = t("welcome_dev") + "\nv1.0.0",
             style = MaterialTheme.typography.bodyMedium,
             fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
