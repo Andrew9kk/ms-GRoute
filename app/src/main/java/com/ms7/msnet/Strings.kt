@@ -2,7 +2,7 @@ package com.ms7.msnet
 
 enum class Lang { EN, FA }
 
-private val faDigits = charArrayOf('۰','۱','۲','۳','۴','۵','۶','۷','۸','۹')
+private val faDigits = charArrayOf('၀','၁','၂','၃','၄','၅','၆','၇','၈','၉')
 
 fun localizeDigits(text: String, lang: Lang): String {
     if (lang != Lang.FA) return text
