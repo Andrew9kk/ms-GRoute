@@ -2458,12 +2458,12 @@ private fun SettingsScreen(
                 shape = RoundedCornerShape(16.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(if (curLang == Lang.FA) "فارسی" else "English", modifier = Modifier.weight(1f))
+                Text(if (curLang == Lang.FA) "မြန်မာ" else "English", modifier = Modifier.weight(1f))
                 Icon(Icons.Filled.ExpandMore, contentDescription = null)
             }
             DropdownMenu(expanded = langOpen, onDismissRequest = { langOpen = false }) {
                 DropdownMenuItem(text = { Text("English") }, onClick = { store.setLang(Lang.EN); langOpen = false })
-                DropdownMenuItem(text = { Text("فارسی") }, onClick = { store.setLang(Lang.FA); langOpen = false })
+                DropdownMenuItem(text = { Text("မြန်မာ") }, onClick = { store.setLang(Lang.FA); langOpen = false })
             }
         }
 
