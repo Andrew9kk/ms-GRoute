@@ -425,32 +425,30 @@ private fun WelcomeScreen(onDone: () -> Unit) {
     .offset(y = 60.dp)
 )
 
-      Text(
-            Text(
-    text = t("welcome_dev"),
-    color = Color(0xFF7F8DA8),
-    fontSize = 15.sp,
-    fontWeight = FontWeight.Bold
-)
+      Column(
+    modifier = Modifier
+        .align(Alignment.BottomCenter)
+        .navigationBarsPadding()
+        .padding(bottom = 24.dp),
+    horizontalAlignment = Alignment.CenterHorizontally
+) {
 
-Text(
-    text = "v1.0.0",
-    color = Color(0xFF00E676),
-    fontSize = 14.sp,
-    fontWeight = FontWeight.Bold
-)
-            style = MaterialTheme.typography.bodyMedium,
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Bold,
-            fontFamily = welcomeFont,
-            color = Color(0xFF7F8DA8),
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .navigationBarsPadding()
-                .padding(bottom = 24.dp)
-        )
-    }
+    Text(
+        text = t("welcome_dev"),
+        style = MaterialTheme.typography.bodyMedium,
+        fontSize = 15.sp,
+        fontWeight = FontWeight.Bold,
+        fontFamily = welcomeFont,
+        color = Color(0xFF7F8DA8)
+    )
+
+    Text(
+        text = "v1.0.0",
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold,
+        color = Color(0xFF00E676)
+    )
+      }
 }
 internal val LocalHazeState = compositionLocalOf<HazeState?> { null }
 
