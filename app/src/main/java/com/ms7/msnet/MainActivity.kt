@@ -421,8 +421,8 @@ private fun WelcomeScreen(onDone: () -> Unit) {
     color = Color(0xFFAAB4C4),
     textAlign = TextAlign.Center,
     modifier = Modifier
-        .fillMaxWidth()
-        .padding(top = 24.dp)
+    .fillMaxWidth()
+    .offset(y = 60.dp)
 )
 
       Text(
