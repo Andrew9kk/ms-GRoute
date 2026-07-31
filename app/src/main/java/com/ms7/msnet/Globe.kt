@@ -91,7 +91,7 @@ data class IpLocation(
     val lon: Double
 )
 
-internal val TehranFallback = IpLocation("\u2014", "Tehran", "Iran", "IR", 35.6892, 51.3890)
+internal val TehranFallback = IpLocation("\u2014", "Yangon", "Myanmar", "MM", 16.8661, 96.1951)
 
 object LocationFetcher {
     suspend fun fetch(throughProxy: Boolean): IpLocation? = withContext(Dispatchers.IO) {
