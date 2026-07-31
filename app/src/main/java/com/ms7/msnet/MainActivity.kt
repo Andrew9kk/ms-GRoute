@@ -542,7 +542,7 @@ class MainActivity : ComponentActivity() {
             val controller = WindowCompat.getInsetsController(window, window.decorView)
             controller.isAppearanceLightStatusBars = !dark
             val lang by store.lang.collectAsState()
-            val direction = if (lang == Lang.FA) LayoutDirection.Rtl else LayoutDirection.Ltr
+            val direction = LayoutDirection.Ltr
 
             MaterialTheme(
                 colorScheme = if (!dark) GnetLightColors
