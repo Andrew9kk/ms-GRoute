@@ -359,97 +359,93 @@ private fun WelcomeScreen(onDone: () -> Unit) {
     )
 
     Box(
-        Modifier
-            .fillMaxSize()
-            .background(SplashBackground),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Text(
-    text = buildAnnotatedString {
-        withStyle(
-            SpanStyle(color = Color(0xFF00E676))
-        ) {
-            append("MS")
-        }
-        withStyle(
-            SpanStyle(color = Color.White)
-        ) {
-            append("Net")
-        }
-    },
-    fontSize = 52.sp,
-    fontWeight = FontWeight.Normal,
-    letterSpacing = 2.sp,
     modifier = Modifier
-        .offset(y = (-60).dp)
-        .graphicsLayer {
-            alpha = logoAlpha
-            scaleX = logoScale
-            scaleY = logoScale
-        }
-)
-            Text(
-                text = t("welcome_tagline"),
-                style = MaterialTheme.typography.titleMedium,
-                fontSize = 16.sp,
-                lineHeight = 22.sp,
-                fontWeight = FontWeight.Bold,
-                fontFamily = welcomeFont,
-                color = Color(0xFF9FB3D1),
-                textAlign = TextAlign.Center,
-                overflow = TextOverflow.Visible,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .offset(y = (-40).dp)
-                    .padding(horizontal = 24.dp)
-                    .graphicsLayer {
-                        alpha = taglineAlpha
-                        translationY = taglineShift
-                    }
-            )
-        }
-        Spacer(modifier = Modifier.height(72.dp))
-
-    Text(
-    text = "Initializing Secure VPN...",
-    style = MaterialTheme.typography.bodyMedium,
-    fontSize = 15.sp,
-    color = Color(0xFF5CC8FF),
-    textAlign = TextAlign.Center,
-    modifier = Modifier
-    .fillMaxWidth()
-    .offset(y = 60.dp)
-)
-
-      Column(
-    modifier = Modifier
-        .align(Alignment.BottomCenter)
-        .navigationBarsPadding()
-        .padding(bottom = 24.dp),
-    horizontalAlignment = Alignment.CenterHorizontally
+        .fillMaxSize()
+        .background(SplashBackground),
+    contentAlignment = Alignment.Center
 ) {
 
-    Text(
-        text = t("welcome_dev"),
-        style = MaterialTheme.typography.bodyMedium,
-        fontSize = 15.sp,
-        fontWeight = FontWeight.Bold,
-        fontFamily = welcomeFont,
-        color = Color(0xFF7F8DA8)
-    )
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
 
-    Text(
-        text = "v1.0.0",
-        fontSize = 14.sp,
-        fontWeight = FontWeight.Bold,
-        color = Color(0xFF00E676)
-    )
-      }
-}
+        Text(
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(color = Color(0xFF00E676))) {
+                    append("MS")
+                }
+                withStyle(SpanStyle(color = Color.White)) {
+                    append("Net")
+                }
+            },
+            fontSize = 52.sp,
+            fontWeight = FontWeight.Normal,
+            letterSpacing = 2.sp,
+            modifier = Modifier
+                .offset(y = (-60).dp)
+                .graphicsLayer {
+                    alpha = logoAlpha
+                    scaleX = logoScale
+                    scaleY = logoScale
+                }
+        )
+
+        Text(
+            text = t("welcome_tagline"),
+            style = MaterialTheme.typography.titleMedium,
+            fontSize = 16.sp,
+            lineHeight = 22.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = welcomeFont,
+            color = Color(0xFF9FB3D1),
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .offset(y = (-40).dp)
+                .padding(horizontal = 24.dp)
+                .graphicsLayer {
+                    alpha = taglineAlpha
+                    translationY = taglineShift
+                }
+        )
+
+        Spacer(modifier = Modifier.height(72.dp))
+
+        Text(
+            text = "Initializing Secure VPN...",
+            style = MaterialTheme.typography.bodyMedium,
+            fontSize = 15.sp,
+            color = Color(0xFF5CC8FF),
+            textAlign = TextAlign.Center
+        )
+    }
+
+    Column(
+        modifier = Modifier
+            .align(Alignment.BottomCenter)
+            .navigationBarsPadding()
+            .padding(bottom = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Text(
+            text = t("welcome_dev"),
+            style = MaterialTheme.typography.bodyMedium,
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = welcomeFont,
+            color = Color(0xFF7F8DA8)
+        )
+
+        Text(
+            text = "v1.0.0",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF00E676)
+        )
+    }
+    }
 internal val LocalHazeState = compositionLocalOf<HazeState?> { null }
 
 object ImportBus {
