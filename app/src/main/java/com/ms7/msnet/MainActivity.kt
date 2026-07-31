@@ -412,17 +412,20 @@ private fun WelcomeScreen(onDone: () -> Unit) {
                     }
             )
         }
-        Spacer(modifier = Modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(72.dp))
 
-Text(
+    Text(
     text = "Initializing Secure VPN...",
     style = MaterialTheme.typography.bodyMedium,
     fontSize = 15.sp,
     color = Color(0xFFAAB4C4),
     textAlign = TextAlign.Center,
-    modifier = Modifier.fillMaxWidth()
+    modifier = Modifier
+        .fillMaxWidth()
+        .padding(top = 24.dp)
 )
-        Text(
+
+      Text(
             text = t("welcome_dev") + "\nv1.0.0",
             style = MaterialTheme.typography.bodyMedium,
             fontSize = 15.sp,
@@ -2469,7 +2472,7 @@ private fun SettingsScreen(
 )
 
 Text(
-    text = "Developer, Telegram Channel & Website",
+    text = "Developer & Telegram Channel",
     style = MaterialTheme.typography.bodySmall,
     color = MaterialTheme.colorScheme.onSurfaceVariant
 )
