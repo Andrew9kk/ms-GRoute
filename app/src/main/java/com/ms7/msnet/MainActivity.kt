@@ -435,7 +435,7 @@ private fun WelcomeScreen(onDone: () -> Unit) {
                 text = "v1.0.0",
                 fontWeight = FontWeight.Bold,
                 fontSize = 14.sp,
-                color = Color(0xFF00E676)
+                color = Color(0xFF9FB3D1)
             )
         }
     }
@@ -443,16 +443,36 @@ private fun WelcomeScreen(onDone: () -> Unit) {
 
 @Composable
 private fun LoadingDots() {
+
+    val transition = rememberInfiniteTransition(label = "")
+
+    val active by transition.animateInt(
+        initialValue = 0,
+        targetValue = 2,
+        animationSpec = infiniteRepeatable(
+            animation = tween(900),
+            repeatMode = RepeatMode.Restart
+        ),
+        label = ""
+    )
+
     Row(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        repeat(3) {
+
+        repeat(3) { index ->
+
             Box(
                 modifier = Modifier
-                    .size(10.dp)
+                    .size(if (index == active) 12.dp else 8.dp)
                     .clip(CircleShape)
-                    .background(Color(0xFF00E676))
+                    .background(
+                        if (index == active)
+                            Color(0xFF00E676)
+                        else
+                            Color(0xFF5C6F8F)
+                    )
             )
         }
     }
