@@ -43,11 +43,6 @@ fun DonationScreen(modifier: Modifier = Modifier) {
     ) {
 
         Text(
-            text = "Contact Us",
-            style = MaterialTheme.typography.headlineSmall
-        )
-
-        Text(
             text = "Developer & Telegram Channel",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
