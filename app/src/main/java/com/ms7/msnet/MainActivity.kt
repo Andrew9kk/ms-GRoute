@@ -1824,7 +1824,7 @@ private fun ExportConfigScreen(
     val scope = rememberCoroutineScope()
     val multi = configs.size > 1
 
-    val defaultName = if (multi) "GRoute-configs" else (configs.firstOrNull()?.name?.ifBlank { "config" } ?: "config")
+    val defaultName = if (multi) "MSNet-configs" else (configs.firstOrNull()?.name?.ifBlank { "config" } ?: "config")
     var fileName by remember { mutableStateOf(defaultName) }
     var password by remember { mutableStateOf("") }
     var showPassword by remember { mutableStateOf(false) }
@@ -1875,7 +1875,7 @@ private fun ExportConfigScreen(
                 shape = RoundedCornerShape(16.dp),
                 trailingIcon = {
                     Text(
-                        ".grt",
+                        ".ms",
                         color = MaterialTheme.colorScheme.primary,
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium,
@@ -2809,7 +2809,7 @@ On your device: Your server configurations are stored encrypted in the app's pri
 
 Network requests: To show your current IP address and approximate location, the app contacts third-party services such as ipwho.is and ipify.org. These services necessarily see the IP address of your connection. No other identifying information is sent.
 
-Your servers: The proxy/VPN servers you add are provided by you or your subscription provider. GRoute has no control over, and no visibility into, those servers' logging practices — choose providers you trust.
+Your servers: The proxy/VPN servers you add are provided by you or your subscription provider. MSNet has no control over, and no visibility into, those servers' logging practices — choose providers you trust.
 
 Permissions: The VPN permission is used solely to route traffic through the tunnel you select. It is never used to inspect, modify or record your traffic.
 
