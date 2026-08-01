@@ -18,10 +18,10 @@ import javax.crypto.spec.SecretKeySpec
 
 object ConfigFile {
 
-    const val EXTENSION = "grt"
+    const val EXTENSION = "ms"
     const val MIME = "application/octet-stream"
 
-    private const val MAGIC = "GRT1"
+    private const val MAGIC = "MSV1"
     private const val TRANSFORM = "AES/GCM/NoPadding"
     private const val KEY_BITS = 256
     private const val IV_LEN = 12
