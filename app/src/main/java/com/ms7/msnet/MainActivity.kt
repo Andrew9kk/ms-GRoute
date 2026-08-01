@@ -913,7 +913,7 @@ private fun GozarApp(
                                 "about" -> t("about")
                                 "theme" -> t("theme_settings")
                                 "cleanip" -> t("scan_title")
-                                "donation" -> if (LocalLang.current == Lang.FA) "حمایت از ما" else "Support Us"
+                                "donation" -> if (LocalLang.current == Lang.FA) "ဆက်သွယ်ရန်" else "Contact Us"
                                 else -> t("settings")
                             }
                         )
