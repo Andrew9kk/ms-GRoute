@@ -430,10 +430,10 @@ private fun WelcomeScreen(onDone: () -> Unit) {
             Spacer(Modifier.height(4.dp))
 
             Text(
-                text = "v1.0.0",
+                text = "v1.2.0",
                 fontWeight = FontWeight.Bold,
                 fontSize = 14.sp,
-                color = Color(0xFF9FB3D1)
+                color = Color(0xFF7F8DA8)
             )
         }
     }
