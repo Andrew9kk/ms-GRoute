@@ -8,8 +8,8 @@ import java.net.URL
 
 object UpdateChecker {
 
-    private const val API = "https://api.github.com/repos/SuOracle/GRoute/releases/latest"
-    private const val RELEASES = "https://github.com/SuOracle/GRoute/releases/latest"
+    private const val API = "https://api.github.com/repos/Andrew9kk/ms-GRoute/releases/latest"
+    private const val RELEASES = "https://github.com/Andrew9kk/ms-GRoute/releases/latest"
 
     sealed interface Result {
         data class Available(val version: String, val url: String) : Result
