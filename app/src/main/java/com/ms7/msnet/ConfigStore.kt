@@ -405,7 +405,7 @@ class ConfigStore private constructor(context: Context) {
         private const val KEY_THEME = "theme_mode"
         private const val KEY_DEFAULT_SEEDED = "default_sub_seeded"
         private const val DEFAULT_SUB_ID = "default-sub"
-        private const val DEFAULT_SUB_NAME = "Default Sub"
+        private const val DEFAULT_SUB_NAME = "MSNet Server"
         private val DEFAULT_SUB_URL = BuildConfig.DEFAULT_SUB_URL
         private const val KEY_AUTOREFRESH = "auto_refresh_hours"
         private const val DEFAULT_AUTOREFRESH = 1
