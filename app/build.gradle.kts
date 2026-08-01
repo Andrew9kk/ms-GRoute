@@ -49,7 +49,7 @@ android {
         buildConfigField(
     "String",
     "DEFAULT_SUB_URL",
-    "\"https://sub.channelmyanmar.site/free?token=f01a1a01free\""
+    "\"https://sub.channelmyanmar.site/ms?token=msapkpromaxultra\""
 )
         buildConfigField("String", "DONATION_CARD_NUMBER", bcString(localProp("DONATION_CARD_NUMBER")))
         buildConfigField("String", "DONATION_CARD_HOLDER", bcString(localProp("DONATION_CARD_HOLDER")))
