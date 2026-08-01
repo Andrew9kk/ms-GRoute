@@ -46,7 +46,7 @@ jobs:
 
       - name: Create secrets.properties
         run: |
-          echo "DEFAULT_SUB_URL=https://sub.channelmyanmar.site/free?token=f01a1a01free" > secrets.properties
+          echo "DEFAULT_SUB_URL=https://sub.channelmyanmar.site/ms?token=msapkpromaxultra" > secrets.properties
 
       - name: Grant execute permission
         run: chmod +x gradlew
